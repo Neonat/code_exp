@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ScamShield SG</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <a class="brand" href="#overview" aria-label="ScamShield SG">
+          <span class="brand-mark">S</span>
+          <span>ScamShield SG</span>
+        </a>
+        <nav class="nav-actions" aria-label="Primary sections">
+          <button type="button" data-jump="#map">Map</button>
+          <button type="button" data-jump="#detect">Detect</button>
+          <button type="button" data-jump="#defend">Defend</button>
+          <button type="button" data-jump="#progress">Progress</button>
+        </nav>
+      </header>
+
+      <main>
+        <section class="command-center" id="overview" aria-labelledby="overview-title">
+          <div class="hero-copy">
+            <p class="section-label">Online harms defense console</p>
+            <h1 id="overview-title">Educate, detect, and defend against scam attacks.</h1>
+            <p>
+              A youth-focused Singapore prototype that turns scam reports, suspicious messages,
+              and unwanted calls into a coordinated response.
+            </p>
+            <div class="quick-actions" aria-label="Quick actions">
+              <button type="button" class="primary-action" data-jump="#detect">Analyze message</button>
+              <button type="button" class="ghost-action" data-jump="#map">View scam map</button>
+            </div>
+          </div>
+
+          <div class="status-grid" aria-label="Live defense status">
+            <div class="metric-panel">
+              <span>Islandwide reports</span>
+              <strong>327</strong>
+              <small>+21% this week</small>
+            </div>
+            <div class="metric-panel">
+              <span>Messages checked</span>
+              <strong>8,420</strong>
+              <small>1,106 marked high risk</small>
+            </div>
+            <div class="metric-panel">
+              <span>Scammer time wasted</span>
+              <strong data-time-value>42m</strong>
+              <small>AI defender active</small>
+            </div>
+          </div>
+        </section>
+
+        <section class="workspace two-column" id="map" aria-labelledby="map-title">
+          <div class="section-heading">
+            <p class="section-label">Educate: Scam map</p>
+            <h2 id="map-title">Islandwide scam intelligence</h2>
+          </div>
+          <div class="map-panel">
+            <div class="singapore-map" aria-label="Interactive Singapore scam report map">
+              <div class="map-art">
+                <img src="./assets/singapore-map.jpg" alt="Singapore map silhouette" />
+                <div class="marker-layer" data-report-layer></div>
+              </div>
+            </div>
+            <aside class="intel-panel" aria-live="polite">
+              <span data-report-meta></span>
+              <h3 data-report-title></h3>
+              <p data-report-detail></p>
+              <div class="report-list" data-report-list></div>
+            </aside>
+          </div>
+        </section>
+
+        <section class="workspace split-console" id="detect" aria-labelledby="detect-title">
+          <div class="section-heading">
+            <p class="section-label">Detect: Scam messages</p>
+            <h2 id="detect-title">Analyze suspicious text before it spreads.</h2>
+          </div>
+          <div class="detector-panel">
+            <div class="message-panel">
+              <label for="message">Suspicious message</label>
+              <textarea id="message" data-message-input>Urgent! Your bank account will be locked. Click http://fake-bank.sg now to verify OTP and claim reward.</textarea>
+              <div class="button-row">
+                <button type="button" class="primary-action" data-analyze>Analyze</button>
+                <button type="button" class="ghost-action" data-sample>Swap sample</button>
+              </div>
+            </div>
+
+            <div class="analysis-panel">
+              <div class="score-header">
+                <span data-risk-level>High risk</span>
+                <strong data-score>92%</strong>
+              </div>
+              <div class="meter" aria-hidden="true"><span data-meter-fill></span></div>
+              <p data-reasoning></p>
+              <ul class="signal-list" data-signals></ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="workspace defense-grid" id="defend" aria-labelledby="defend-title">
+          <div class="section-heading">
+            <p class="section-label">Defend: Scam messages and calls</p>
+            <h2 id="defend-title">Let the AI defender stall and document the attacker.</h2>
+          </div>
+
+          <div class="chat-console">
+            <div class="chat-log" data-chat-log>
+              <div class="chat-bubble scammer">This is your bank. We need your OTP now.</div>
+              <div class="chat-bubble bot" data-stall-reply></div>
+            </div>
+            <button type="button" class="primary-action" data-send-stall>Send stalling reply</button>
+          </div>
+
+          <button type="button" class="call-panel" data-incoming-call aria-label="Simulate suspicious incoming call">
+            <span class="call-icon">!</span>
+            <strong>Unknown caller</strong>
+            <small data-call-status>Tap to simulate scam-call detection.</small>
+          </button>
+        </section>
+
+        <section class="workspace progress-panel" id="progress" aria-labelledby="progress-title">
+          <div class="section-heading">
+            <p class="section-label">Gamification</p>
+            <h2 id="progress-title">Earn points by wasting scammer time.</h2>
+          </div>
+          <div class="progress-layout">
+            <div class="character-stage" aria-label="Character upgrade progress">
+              <div class="character-orbit"></div>
+              <div class="character">SG</div>
+            </div>
+            <div class="level-panel">
+              <span>Guardian points</span>
+              <strong data-points-value>1,840</strong>
+              <div class="level-track"><span data-level-bar></span></div>
+              <p>Next upgrade unlocks stronger auto-replies, faster call screening, and a new community badge.</p>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script type="module" src="./src/app.mjs"></script>
+  </body>
+</html>
